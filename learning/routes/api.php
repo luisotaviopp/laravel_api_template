@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Country\CountryController;
 use App\Http\Controllers\Country\Country;
+use App\Http\Controllers\FileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,3 +45,14 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 // ---------------------------------------------------------------------> COUNTRY -> Se quiser user um resource (tudo em um único arquivo).
 // php artisan make:controller Country/Country --resource
 Route::apiResource('country', 'Country\Country');
+
+
+
+
+// ---------------------------------------------------------------------> ARQUIVOS.
+
+// Download a File.
+Route::get('file', [FileController::class, 'downLoadFile']);
+
+// Upload a File.
+Route::post('file', [FileController::class, 'upLoadFile']);
