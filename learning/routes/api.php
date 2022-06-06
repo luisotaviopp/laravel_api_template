@@ -24,16 +24,21 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 // Route::METODO_HTTP('ENDPOINT', [CONTROLLER::class, 'FUNCAO_DENTRO_DO_CONTROLLER']);
 
 // Select * from country
-Route::get('country', [CountryController::class, 'country']);
+//Route::get('country', [CountryController::class, 'country']);
 
 // Select country by id
-Route::get('country/{id}', [CountryController::class, 'countryById']);
+//Route::get('country/{id}', [CountryController::class, 'countryById']);
 
 // Add a country
-Route::post('country', [CountryController::class, 'countrySave']);
+//Route::post('country', [CountryController::class, 'countrySave']);
 
 // Edit a country
-Route::put('country/{country_id}', [CountryController::class, 'countryUpdate']);
+//Route::put('country/{country_id}', [CountryController::class, 'countryUpdate']);
 
 // Delete a Country
-Route::delete('country/{country_id}', [CountryController::class, 'countryDelete']);
+//Route::delete('country/{country_id}', [CountryController::class, 'countryDelete']);
+
+
+
+// php artisan make:controller Country/Country --resource
+Route::apiResource('country', 'Country\Country');
