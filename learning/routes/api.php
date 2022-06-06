@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Country\CountryController;
+use App\Http\Controllers\Country\Country;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,7 +21,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 
-// ---------------------------------------------------------------------> COUNTRY
+// ---------------------------------------------------------------------> COUNTRY -> Se quiser fazer um por um...
 // Route::METODO_HTTP('ENDPOINT', [CONTROLLER::class, 'FUNCAO_DENTRO_DO_CONTROLLER']);
 
 // Select * from country
@@ -40,5 +41,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 
 
+// ---------------------------------------------------------------------> COUNTRY -> Se quiser user um resource (tudo em um único arquivo).
 // php artisan make:controller Country/Country --resource
 Route::apiResource('country', 'Country\Country');
