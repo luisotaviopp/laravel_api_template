@@ -6,12 +6,18 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use App\Models\CountryModel;
+use Illuminate\Support\Facades\DB;
 Use Validator;
 
 class CountryController extends Controller
 {
 	public function country(){
 		return response()->json(CountryModel::get(), 200); // Retorna um HTTP Response com todos os países, e com o status 200.
+	}
+
+	public function countryNative(){
+		$sql= DB::select("SELECT * FROM _z_country");
+		return response()->json($sql, 200);
 	}
 
 	public function countryById($id){

@@ -12,6 +12,9 @@ use App\Http\Controllers\FileController;
 //Select * from country
 Route::get('v1/country', [CountryController::class, 'country']);
 
+//Select * from country
+Route::get('v1/country/raw', [CountryController::class, 'countryNative']);
+
 //Select country by id
 Route::get('v1/country/{id}', [CountryController::class, 'countryById']);
 
