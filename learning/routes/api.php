@@ -6,45 +6,23 @@ use App\Http\Controllers\Country\CountryController;
 use App\Http\Controllers\Country\Country;
 use App\Http\Controllers\FileController;
 
-/*
-|--------------------------------------------------------------------------
-| API Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| is assigned the "api" middleware group. Enjoy building your API!
-|
-*/
+//---------------------------------------------------------------------> COUNTRY -> Se quiser fazer um por um...
+//Route::METODO_HTTP('ENDPOINT', [CONTROLLER::class, 'FUNCAO_DENTRO_DO_CONTROLLER']);
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+//Select * from country
+Route::get('v1/country', [CountryController::class, 'country']);
 
+//Select country by id
+Route::get('v1/country/{id}', [CountryController::class, 'countryById']);
 
-// ---------------------------------------------------------------------> COUNTRY -> Se quiser fazer um por um...
-// Route::METODO_HTTP('ENDPOINT', [CONTROLLER::class, 'FUNCAO_DENTRO_DO_CONTROLLER']);
+//Add a country
+Route::post('v1/country', [CountryController::class, 'countrySave']);
 
-// Select * from country
-//Route::get('country', [CountryController::class, 'country']);
+//Edit a country
+Route::put('v1/country/{country_id}', [CountryController::class, 'countryUpdate']);
 
-// Select country by id
-//Route::get('country/{id}', [CountryController::class, 'countryById']);
-
-// Add a country
-//Route::post('country', [CountryController::class, 'countrySave']);
-
-// Edit a country
-//Route::put('country/{country_id}', [CountryController::class, 'countryUpdate']);
-
-// Delete a Country
-//Route::delete('country/{country_id}', [CountryController::class, 'countryDelete']);
-
-
-
-// ---------------------------------------------------------------------> COUNTRY -> Se quiser user um resource (tudo em um único arquivo).
-// php artisan make:controller Country/Country --resource
-Route::apiResource('country', 'Country\Country');
+//Delete a Country
+Route::delete('v1/country/{country_id}', [CountryController::class, 'countryDelete']);
 
 
 
