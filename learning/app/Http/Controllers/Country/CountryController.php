@@ -7,7 +7,8 @@ use Illuminate\Http\Request;
 
 use App\Models\CountryModel;
 use Illuminate\Support\Facades\DB;
-Use Validator;
+Use Illuminate\Support\Facades\Validator;
+use Barryvdh\LaravelIdeHelper\Eloquent;
 
 class CountryController extends Controller
 {
@@ -15,10 +16,12 @@ class CountryController extends Controller
 		return response()->json(CountryModel::get(), 200); // Retorna um HTTP Response com todos os países, e com o status 200.
 	}
 
+
 	public function countryNative(){
-		$sql= DB::select("SELECT * FROM _z_country");
-		return response()->json($sql, 200);
+		$consulta = DB::select("SELECT * FROM _z_country");
+		return response()->json($consulta, 200);
 	}
+
 
 	public function countryById($id){
 
@@ -30,7 +33,6 @@ class CountryController extends Controller
 
 		return response()->json(CountryModel::find($id), 200); // Retorna um HTTP Response com o país que corresponde a esse id, com o status 200.
 	}
-
 
 
 	public function countrySave(Request $request){
